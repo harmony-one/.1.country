@@ -105,7 +105,7 @@ const Home = ({ subdomain = config.tld }) => {
   const [address, setAddress] = useState('')
   const [client, setClient] = useState(apis({}))
   const [record, setRecord] = useState(null)
-  const [lastRentedRecord, setLastRentedRecord] = useState(null)
+  // const [lastRentedRecord, setLastRentedRecord] = useState(null)
   const [price, setPrice] = useState(null)
   const [parameters, setParameters] = useState({ rentalPeriod: 0, priceMultiplier: 0 })
   const [tweetId, setTweetId] = useState('')
@@ -204,12 +204,12 @@ const Home = ({ subdomain = config.tld }) => {
     client.getPrice({ name }).then(p => setPrice(p))
   }, [client])
 
-  useEffect(() => {
-    if (!parameters?.lastRented) {
-      return
-    }
-    client.getRecord({ name: parameters.lastRented }).then(r => setLastRentedRecord(r))
-  }, [parameters?.lastRented])
+  // useEffect(() => {
+  //   if (!parameters?.lastRented) {
+  //     return
+  //   }
+  //   // client.getRecord({ name: parameters.lastRented }).then(r => setLastRentedRecord(r))
+  // }, [parameters?.lastRented])
 
   useEffect(() => {
     if (!record?.url) {
