@@ -422,7 +422,7 @@ const Home = ({ subdomain = config.tld }) => {
       <SmallTextGrey>
         <a
           href='https://harmony.one/domains'
-          target='_self'
+          target='_blank'
           rel='noreferrer'
         >
           <SmallTextGrey> Harmony's Creator Economy & Web3 Nations </SmallTextGrey>
