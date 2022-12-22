@@ -265,14 +265,14 @@ const Home = ({ subdomain = config.tld }) => {
       <Container>
         {lastRentedRecord &&
           <Banner>
-            <Row style={{ justifyContent: 'center', flexWrap: 'wrap' }}>
+            {/* <Row style={{ justifyContent: 'center', flexWrap: 'wrap' }}>
               <SmallTextGrey>last purchase</SmallTextGrey>
               <a
                 href={`https://${parameters.lastRented}${config.tld}`}
                 style={{ color: 'grey', textDecoration: 'none' }}
               ><BaseText>{parameters.lastRented}{config.tld}</BaseText>
               </a> <BaseText>({lastRentedRecord.lastPrice.formatted} ONE)</BaseText>
-            </Row>
+            </Row> */}
             {/* <Row style={{ justifyContent: 'center', flexWrap: 'wrap' }}> */}
             {/*  <SmallTextGrey>{humanD(Date.now() - lastRentedRecord.timeUpdated)} ago</SmallTextGrey> */}
             {/*  <SmallTextGrey>by {lastRentedRecord.renter}</SmallTextGrey> */}
@@ -296,7 +296,7 @@ const Home = ({ subdomain = config.tld }) => {
     <Container>
       {lastRentedRecord &&
         <Banner>
-          <Row style={{ justifyContent: 'center', flexWrap: 'wrap' }}>
+          {/* <Row style={{ justifyContent: 'center', flexWrap: 'wrap' }}>
             <SmallTextGrey>last purchase</SmallTextGrey>
             <a
               href={`https://${parameters.lastRented}${config.tld}`}
@@ -304,7 +304,7 @@ const Home = ({ subdomain = config.tld }) => {
             >
               <BaseText>{parameters.lastRented}{config.tld}</BaseText>
             </a> <BaseText>({lastRentedRecord.lastPrice.formatted} ONE)</BaseText>
-          </Row>
+          </Row> */}
           {/* <Row style={{ justifyContent: 'center', flexWrap: 'wrap' }}> */}
           {/*  <SmallTextGrey>{humanD(Date.now() - lastRentedRecord.timeUpdated)} ago</SmallTextGrey> */}
           {/*  <SmallTextGrey>by {lastRentedRecord.renter}</SmallTextGrey> */}
@@ -422,7 +422,7 @@ const Home = ({ subdomain = config.tld }) => {
       <SmallTextGrey>
         <a
           href='https://harmony.one/domains'
-          target='_blank'
+          target='_self'
           rel='noreferrer'
         >
           <SmallTextGrey> Harmony's Creator Economy & Web3 Nations </SmallTextGrey>
