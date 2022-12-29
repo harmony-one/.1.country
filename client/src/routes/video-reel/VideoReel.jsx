@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import VideoPlayer from '../../components/video-player/VideoPlayer'
+import { useParams } from 'react-router-dom'
+import { getVideo } from '../../api/video-api'
+
 import { VideoReelDiv } from './VideoReel.styles'
-import videoTest from '../../../assets/test-videos/h.mov'
 
 const VideoReel = () => {
+  const [videos, setVideos] = useState(null)
+  const { vanityUrl } = useParams()
+
+  useEffect(() => {
+    setVideos(getVideo(vanityUrl))
+  }, [])
+
   return (
     <VideoReelDiv>
-      <VideoPlayer video={videoTest} />
-      {/* <video src={videoTest} autoPlay muted /> */}
+      {videos && <VideoPlayer video={videos} />}
     </VideoReelDiv>
   )
 }

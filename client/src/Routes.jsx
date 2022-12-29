@@ -9,7 +9,7 @@ const Routes = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path='/' render={() => <Home />} />
-        <Route path='/video' render={() => <VideoReel />} />
+        <Route path='/video/:vanityUrl' render={() => <VideoReel />} />
         <Redirect to='/' />
       </Switch>
     </BrowserRouter>

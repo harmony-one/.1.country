@@ -29,3 +29,7 @@ export const TEST_VIDEOS = [
 export const getOwnerVideos = (name) => {
   return TEST_VIDEOS
 }
+
+export const getVideo = (vanityUrl) => {
+  return TEST_VIDEOS.find(v => v.vanityUrl === vanityUrl)
+}
