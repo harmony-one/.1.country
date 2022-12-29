@@ -11,6 +11,7 @@ import TwitterSection from '../../components/twitter-section/TwitterSection'
 import { Col, Row, FlexRow } from '../../components/Layout'
 import { BaseText, SmallText, SmallTextGrey } from '../../components/Text'
 import { OnwerLabel, PersonalInfoRevealContainer } from './OwnerInfo.styles'
+import OwnerVideos from '../owner-videos/OwnerVideos'
 
 const defaultOwnerInfo = {
   telegram: '',
@@ -110,6 +111,9 @@ const OwnerInfo = (props) => {
         <TwitterSection tweetId={tweetId} pageName={pageName} client={client} />
       )}
       {/* <Row style={{ marginTop: 32, justifyContent: 'center' }}> */}
+      <Row>
+        <OwnerVideos name={pageName} />
+      </Row>
       <Row>
         {record.url && !tweetId && (
           <Col>

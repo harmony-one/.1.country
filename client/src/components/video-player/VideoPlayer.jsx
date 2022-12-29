@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState, useRef } from 'react'
 import { VideoPlayerDiv } from './VideoPlayer.styles'
+import ApplePayLogo from '../../../assets/images/logos/Apple Pay Logo White 2.png'
 
 const VideoPlayer = ({ video }) => {
   const [muted, setMuted] = useState(false)
@@ -43,7 +44,9 @@ const VideoPlayer = ({ video }) => {
         onLoadedData={videoLoaded}
       />
       <div className='videoPlayer-content' onClick={pauseVideo}>
-        <div className='videoPlayer-pay-icon'>Apple Pay</div>
+        <div className='videoPlayer-pay-icon'>
+          <img src={ApplePayLogo} alt='Apple Pay' />
+        </div>
         <div className='videoPlayer-mute-icon' onClick={muteVideo}>Mute</div>
       </div>
     </VideoPlayerDiv>

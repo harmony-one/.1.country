@@ -25,8 +25,19 @@ export const VideoPlayerDiv = styled(FlexColumn)`
     color: white;
 
     .videoPlayer-pay-icon {
+      cursor: pointer;
       margin-right: 1em;
       margin-top: 1em;
+      background-color: black;
+      height: 1.5em;
+      border-radius: 10px;
+      padding-left: 0.35em;
+      padding-right: 0.35em;
+      padding-bottom: 0.2em;
+      img {
+        height: 1.8em;
+        object-fit: scale-down;
+      }
     }
 
     .videoPlayer-mute-icon {
