@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import React, { useEffect, useState } from 'react'
-// import { VideoGrid } from 'react-fb-image-video-grid'
+import { VideoGrid } from 'react-fb-image-video-grid'
 import { getOwnerVideos } from '../../api/video-api'
 
 const OwnerVideos = ({ name }) => {
@@ -12,15 +12,17 @@ const OwnerVideos = ({ name }) => {
   console.log('mi vdieos.', videos)
   return (
     <div>
-      Hola
-      {/* {videos &&
+      {videos.length > 1 &&
         <VideoGrid>
           {videos.map((video, index) =>
-            <div key={index}>
-              <video src={video.url} />
-            </div>
+            <video controls key={index}>
+              <source
+                type='video/mp4'
+                src={video.url}
+              />
+            </video>
           )}
-        </VideoGrid>} */}
+        </VideoGrid>}
     </div>
   )
 }
