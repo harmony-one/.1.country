@@ -26,6 +26,7 @@ import {
 import OwnerInfo from '../../components/owner-info/OwnerInfo'
 import LastPurchase from '../../components/last-purchase/LastPurchase'
 import OwnerForm from '../../components/owner-form/OwnerForm'
+import { VanityURL } from './VanityURL'
 
 const humanD = humanizeDuration.humanizer({ round: true, largest: 1 })
 
@@ -111,6 +112,7 @@ const Home = ({ subdomain = config.tld }) => {
       }
       return parts.slice(0, parts.length - 2).join('.')
     }
+
     setName(getSubdomain())
     const web3 = new Web3(config.defaultRPC)
     const api = apis({ web3, address })
@@ -256,6 +258,7 @@ const Home = ({ subdomain = config.tld }) => {
 
   return (
     <Container>
+      <VanityURL record={record} name={name} />
       {/* {lastRentedRecord && (
         <LastPurchase
           parameters={parameters}
