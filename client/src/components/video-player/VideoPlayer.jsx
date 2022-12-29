@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState, useRef } from 'react'
-import { VideoPlayerDiv } from './VideoPlayer.style'
+import { VideoPlayerDiv } from './VideoPlayer.styles'
 
 const VideoPlayer = ({ video }) => {
   const [muted, setMuted] = useState(false)

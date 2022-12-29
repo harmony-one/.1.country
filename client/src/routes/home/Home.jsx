@@ -22,11 +22,10 @@ import {
   Container,
   HomeLabel,
   DescResponsive
-} from './Home.module'
+} from './Home.styles'
 import OwnerInfo from '../../components/owner-info/OwnerInfo'
 import LastPurchase from '../../components/last-purchase/LastPurchase'
 import OwnerForm from '../../components/owner-form/OwnerForm'
-
 
 const humanD = humanizeDuration.humanizer({ round: true, largest: 1 })
 
@@ -389,7 +388,7 @@ const Home = ({ subdomain = config.tld }) => {
           <SmallTextGrey>Your address: {address}</SmallTextGrey>
         </>
       )}
-      <SmallTextGrey> 
+      <SmallTextGrey>
         <a
           href='https://harmony.one/domains'
           rel='noreferrer'

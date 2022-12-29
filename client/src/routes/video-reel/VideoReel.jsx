@@ -12,4 +12,4 @@ const VideoReel = () => {
   )
 }
 
-export default VideoReel;
+export default VideoReel

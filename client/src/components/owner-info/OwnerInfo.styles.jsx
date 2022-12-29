@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { SmallTextGrey } from '../../components/Text'
+import { SmallTextGrey } from '../Text'
 
 export const OnwerLabel = styled(SmallTextGrey)`
   margin-right: 16px;

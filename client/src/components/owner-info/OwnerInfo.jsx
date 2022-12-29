@@ -10,7 +10,7 @@ import config from '../../../config'
 import TwitterSection from '../../components/twitter-section/TwitterSection'
 import { Col, Row, FlexRow } from '../../components/Layout'
 import { BaseText, SmallText, SmallTextGrey } from '../../components/Text'
-import { OnwerLabel, PersonalInfoRevealContainer } from './OwnerInfo.module'
+import { OnwerLabel, PersonalInfoRevealContainer } from './OwnerInfo.styles'
 
 const defaultOwnerInfo = {
   telegram: '',
