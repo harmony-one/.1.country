@@ -114,7 +114,7 @@ const UserBlock = (props) => {
     if (infoName === 'telegram' && infoValue) {
       return redirectToTelegram(infoValue)
     }
-  }, [ownerInfo, isConnected])
+  },)
 
   return (
     <UserBlockDiv>
