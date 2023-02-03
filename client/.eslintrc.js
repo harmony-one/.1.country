@@ -11,7 +11,6 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
     'standard-jsx',
     'standard',
-    'prettier'
   ],
   globals: {
     artifacts: 'readonly',
