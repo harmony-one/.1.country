@@ -139,7 +139,7 @@ contract D1DC is ERC721, Pausable, Ownable {
     // User functions
 
     function getPrice(bytes32 encodedName) public view returns (uint256) {
-        NameRecord storage nameRecord = nameRecords[encodedName];
+        NameRecord memory nameRecord = nameRecords[encodedName];
         if (nameRecord.timeUpdated + rentalPeriod <= uint32(block.timestamp)) {
             return baseRentalPrice;
         }
