@@ -318,8 +318,8 @@ contract D1DCV2 is
 
         if (_exists(tokenId)) {
             _safeTransfer(originalOwner, msg.sender, tokenId, "");
-            // pay 90% to the original name owner
-            uint256 priceForOwner = (price * 90) / 100;
+            // pay 10% to the original name owner
+            uint256 priceForOwner = (price * 10) / 100;
             (bool success, ) = originalOwner.call{value: priceForOwner}("");
             require(success, "error sending ether");
         } else {
