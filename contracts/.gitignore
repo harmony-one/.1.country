@@ -15,3 +15,6 @@ docs
 typechain-types
 dump.json
 .env.dump
+
+# openzeppelin dev files
+.openzeppelin/unknown-*.json
