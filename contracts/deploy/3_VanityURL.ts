@@ -10,8 +10,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 
   const addressRegistry = await get("AddressRegistry");
 
-  const urlUpdatePrice = config.urlUpdatePrice
-  // const urlUpdatePrice = ethers.utils.parseEther(config.urlUpdatePrice)
+  const urlUpdatePrice = ethers.utils.parseEther(config.urlUpdatePrice)
   const revenueAccount = config.revenueAccount
 
   const VanityURL = await deploy("VanityURL", {
