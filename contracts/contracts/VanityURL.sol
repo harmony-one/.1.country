@@ -57,7 +57,7 @@ contract VanityURL is
         string indexed aliasName,
         string oldURL,
         string indexed newURL,
-        uint256 newPrice
+        uint256 price
     );
     event RevenueAccountChanged(address indexed from, address indexed to);
 
@@ -104,7 +104,7 @@ contract VanityURL is
         string calldata _name,
         string calldata _aliasName,
         string calldata _url,
-        uint256 _contentPrice
+        uint256 _price
     ) external payable nonReentrant whenNotPaused onlyD1DCV2NameOwner(_name) {
         require(bytes(_aliasName).length <= 1024, "VanityURL: alias too long");
         require(bytes(_url).length <= 1024, "VanityURL: url too long");
@@ -120,7 +120,7 @@ contract VanityURL is
 
         // set a new URL
         vanityURLs[tokenId][_aliasName] = _url;
-        vanityURLPrices[tokenId][_aliasName] = _contentPrice;
+        vanityURLPrices[tokenId][_aliasName] = _price;
         vanityURLUpdatedAt[tokenId][_aliasName] = block.timestamp;
 
         // returns the exceeded payment
@@ -130,7 +130,7 @@ contract VanityURL is
             require(success, "cannot refund excess");
         }
 
-        emit NewURLSet(msg.sender, _name, _aliasName, _url, _contentPrice);
+        emit NewURLSet(msg.sender, _name, _aliasName, _url, _price);
     }
 
     function deleteURL(string calldata _name, string calldata _aliasName)
@@ -146,6 +146,7 @@ contract VanityURL is
 
         // delete the URL
         vanityURLs[tokenId][_aliasName] = "";
+        vanityURLPrices[tokenId][_aliasName] = 0;
         vanityURLUpdatedAt[tokenId][_aliasName] = block.timestamp;
     }
 
@@ -153,7 +154,7 @@ contract VanityURL is
         string calldata _name,
         string calldata _aliasName,
         string calldata _url,
-        uint256 _contentPrice
+        uint256 _price
     ) external whenNotPaused onlyD1DCV2NameOwner(_name) {
         require(bytes(_url).length <= 1024, "VanityURL: url too long");
 
@@ -166,12 +167,12 @@ contract VanityURL is
             _aliasName,
             vanityURLs[tokenId][_aliasName],
             _url,
-            _contentPrice
+            _price
         );
 
         // update the URL
         vanityURLs[tokenId][_aliasName] = _url;
-        vanityURLPrices[tokenId][_aliasName] = _contentPrice;
+        vanityURLPrices[tokenId][_aliasName] = _price;
         vanityURLUpdatedAt[tokenId][_aliasName] = block.timestamp;
     }
 
@@ -195,7 +196,7 @@ contract VanityURL is
         return vanityURLPrices[tokenId][_aliasName];
     }
 
-    function getOwner(string calldata _name)
+    function getNameOwner(string calldata _name)
         external
         view
         returns (address)
@@ -215,7 +216,7 @@ contract VanityURL is
     {
         bytes32 tokenId = keccak256(bytes(_name));
         return
-            nameOwnerUpdateAt[tokenId] <=
+            nameOwnerUpdateAt[tokenId] <
                 vanityURLUpdatedAt[tokenId][_aliasName]
                 ? true
                 : false;
