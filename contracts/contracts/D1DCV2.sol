@@ -125,15 +125,15 @@ contract D1DCV2 is
         string indexed name,
         address indexed renter,
         uint256 price,
-        string url
+        string indexed url
     );
     event URLUpdated(
         string indexed name,
         address indexed renter,
         string oldUrl,
-        string newUrl
+        string indexed newUrl
     );
-    event RevenueAccountChanged(address from, address to);
+    event RevenueAccountChanged(address indexed from, address indexed to);
     event EmojiReactionAdded(
         address indexed by,
         string indexed name,
@@ -299,8 +299,6 @@ contract D1DCV2 is
         require(bytes(url).length <= 1024, "D1DC: url too long");
 
         bytes32 key = keccak256(bytes(name));
-
-        uint256 tokenId = uint256(key);
         NameRecord storage nameRecord = nameRecords[key];
         uint256 price = getPrice(key);
         require(price <= msg.value, "D1DC: insufficient payment");
@@ -316,6 +314,7 @@ contract D1DCV2 is
 
         lastRented = name;
 
+        uint256 tokenId = uint256(key);
         if (_exists(tokenId)) {
             _safeTransfer(originalOwner, msg.sender, tokenId, "");
             // pay 10% to the original name owner
@@ -332,7 +331,7 @@ contract D1DCV2 is
         }
 
         // since _afterTokenTransfer function removes the owner info, add it after transferring NFT
-        OwnerInfo storage ownerInfo = _ownerInfos[bytes32(tokenId)];
+        OwnerInfo storage ownerInfo = _ownerInfos[key];
         ownerInfo.telegram = telegram;
         ownerInfo.email = email;
         ownerInfo.phone = phone;
